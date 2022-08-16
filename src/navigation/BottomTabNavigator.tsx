@@ -12,7 +12,10 @@ import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
-import { RootTabParamList, RootTabScreenProps } from "../../types";
+import {
+  RootTabParamList,
+  RootTabScreenProps,
+} from "../types/navigation/types";
 
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
