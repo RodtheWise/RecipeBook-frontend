@@ -6,16 +6,15 @@
 import { FontAwesome } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import * as React from "react";
-import { Pressable } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
-import TabOneScreen from "../screens/TabOneScreen";
-import TabTwoScreen from "../screens/TabTwoScreen";
-import {
-  RootTabParamList,
-  RootTabScreenProps,
-} from "../types/navigation/types";
+import { RootTabParamList } from "../types/navigation/types";
+import ClassesStackNavigator from "./classes/ClassesStackNavigator";
+import CommunityStackNavigator from "./community/CommunityStackNavigator";
+import GroceryStackNavigator from "./grocery/GroceryStackNavigator";
+import HomeStackNavigator from "./home/HomeStackNavigator";
+import ProfileStackNavigator from "./profile/ProfileStackNavigator";
 
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
@@ -24,39 +23,53 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="TabHome"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}
     >
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneScreen}
-        options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
-          title: "Tab One",
+        name="TabHome"
+        component={HomeStackNavigator}
+        options={{
+          title: "Home",
+          headerShown: false,
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate("Modal")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            >
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
-              />
-            </Pressable>
-          ),
-        })}
+        }}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
+        name="TabGrocery"
+        component={GroceryStackNavigator}
         options={{
-          title: "Tab Two",
+          title: "Grocery",
+          headerShown: false,
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="TabClasses"
+        component={ClassesStackNavigator}
+        options={{
+          title: "Classes",
+          headerShown: false,
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="TabCommunity"
+        component={CommunityStackNavigator}
+        options={{
+          title: "Community",
+          headerShown: false,
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="TabProfile"
+        component={ProfileStackNavigator}
+        options={{
+          title: "Profile",
+          headerShown: false,
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />

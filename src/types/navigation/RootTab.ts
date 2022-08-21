@@ -4,8 +4,11 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "./RootStack";
 
 export type RootTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
+  TabHome: undefined;
+  TabGrocery: undefined;
+  TabClasses: undefined;
+  TabCommunity: undefined;
+  TabProfile: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
