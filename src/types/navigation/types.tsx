@@ -12,3 +12,4 @@ declare global {
 
 export * from "./RootStack";
 export * from "./RootTab";
+export * from "./ProfileStack";
