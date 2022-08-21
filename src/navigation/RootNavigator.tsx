@@ -7,7 +7,7 @@ import * as React from "react";
 
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
-import { RootStackParamList } from "../../types";
+import { RootStackParamList } from "../types/navigation/types";
 import BottomTabNavigator from "./BottomTabNavigator";
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
